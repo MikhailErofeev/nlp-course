@@ -357,7 +357,8 @@ I-ORG	{F1=0.227, precision=0.884, recall=0.13, accuracy=0.128, tp=23, tn=0, fp=3
 B-ORG	{F1=0.503, precision=0.711, recall=0.389, accuracy=0.336, tp=79, tn=0, fp=32, fn=124}
 I-PER	{F1=0.442, precision=0.46, recall=0.425, accuracy=0.283, tp=23, tn=0, fp=27, fn=31}
 B-PER	{F1=0.403, precision=0.913, recall=0.259, accuracy=0.253, tp=21, tn=0, fp=2, fn=60}
-all	{F1=0.943, precision=0.943, recall=0.943, accuracy=0.893, tp=6614, tn=0, fp=394, fn=394}```
+all	{F1=0.943, precision=0.943, recall=0.943, accuracy=0.893, tp=6614, tn=0, fp=394, fn=394}
+```
 
 necr, упрощение типов (для корректности сравнения):
 
@@ -365,7 +366,8 @@ necr, упрощение типов (для корректности сравн�
 PER	StatisticsResult{F1=0.575, precision=0.75, recall=0.466, accuracy=0.403, tp=63, tn=0, fp=21, fn=72}
 O	StatisticsResult{F1=0.974, precision=0.957, recall=0.992, accuracy=0.95, tp=6445, tn=0, fp=286, fn=49}   
 ORG	StatisticsResult{F1=0.569, precision=0.844, recall=0.43, accuracy=0.398, tp=163, tn=0, fp=30, fn=216}
-all	StatisticsResult{F1=0.951, precision=0.951, recall=0.951, accuracy=0.908, tp=6671, tn=0, fp=337, fn=337}```
+all	StatisticsResult{F1=0.951, precision=0.951, recall=0.951, accuracy=0.908, tp=6671, tn=0, fp=337, fn=337}
+```
 
 necr + rompip:
 
@@ -373,7 +375,8 @@ necr + rompip:
 PER	{F1=0.526, precision=0.39, recall=0.807, accuracy=0.357, tp=109, tn=0, fp=170, fn=26}
 O	{F1=0.965, precision=0.987, recall=0.944, accuracy=0.933, tp=6134, tn=0, fp=80, fn=360}
 ORG	{F1=0.592, precision=0.514, recall=0.699, accuracy=0.421, tp=265, tn=0, fp=250, fn=114}
-all	{F1=0.928, precision=0.928, recall=0.928, accuracy=0.866, tp=6508, tn=0, fp=500, fn=500}```
+all	{F1=0.928, precision=0.928, recall=0.928, accuracy=0.866, tp=6508, tn=0, fp=500, fn=500}
+```
 
 Улучшилось качество людей, тк фича не шумная и чем больше данных, тем лучше обучается. В остальных случаях качество просело, тк в romip тип организации считается по-другому.
 
