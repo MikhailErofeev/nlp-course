@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * @author m-erofeev
  * @since 18.05.14
  */
-public class DataNormalizers {
-
+public class DataProcessingUtils {
 
     public static Multimap<String, String> createLabelToTextsMap(Map<String, Set<String>> labels2Files, Set<String> niceWords) throws IOException {
         Multimap<String, String> label2Texts = HashMultimap.create();
@@ -86,13 +86,32 @@ public class DataNormalizers {
             return src;
         }
         final String dest = StringUtils.replacePattern(src,
-                "(ующих|енного|енных|ельных|овал|овать|ьное|ования|ование|щихся|ельный|ства|ство|иями|щейся|ьюам|" +
-                        "ова|ову|оя|ием|ете|ите|иях|ный|ого|ами|ного|ться|тся|ель|его|ств|" +
-                        "ие|им|ый|ая|ал|аю|ии|ые|ым|ых|ое|ий|ют|ей|ин|ей|ям|" +
-                        "ер|ов|ов|ет|ем|ом|ов|ю|ся|ой|ую|ут|их|ит|ой|ят|ия|ах|ок|ои|" +
+                "(" + ADJECTIVE_ENDS + "|овал|овать|ьное|ования|ование|ства|ство|иями|ьюам|ием|" +
+                        "ова|ову|оя|ием|ете|ться|тся|ель|ств|ами|" +
+                        "ал|аю|ии|ые|ым|ых|ое|ий|ют|ин|ей|ям|ие|" +
+                        "ер|ов|ет|ю|ся|ой|ую|ут|их|ит|ят|ия|ах|ок|ои|ем|ом|ов|" +
                         "у|о|я|ь|ы|е|а)$", ""
         );
         return dest;
+    }
+
+    private static final String LAST_NAME_ENDS = "ына|ова|ной|ную|ина|ев|ий|ым|им|ов|ир";
+
+    private static final String ADJECTIVE_ENDS = "ующих|ующие|ующая|енного|енных|ельных|щихся|ельный|щейся|ного|" +
+            "ите|иях|ный|ных|ный|ого|ому|его|ыми|" +
+            "им|ый|ая|ей|ой|ая";
+
+    private static final Pattern ADJECTIVE_PATTERN = Pattern.compile("(" + ADJECTIVE_ENDS + ")$");
+
+    private static final Pattern LAST_NAME_PATTERN = Pattern.compile("(" + LAST_NAME_ENDS + ")$");
+
+    public static boolean isAdjective(String word) {
+        return ADJECTIVE_PATTERN.matcher(word).find();
+    }
+
+
+    public static boolean isPeople(String word) {
+        return LAST_NAME_PATTERN.matcher(word).find();
     }
 
     private static String normalizeSentences(String text, Set<String> niceWords) {

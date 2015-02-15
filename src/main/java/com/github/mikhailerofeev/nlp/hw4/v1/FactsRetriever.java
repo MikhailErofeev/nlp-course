@@ -1,4 +1,4 @@
-package com.github.mikhailerofeev.nlp.hw4;
+package com.github.mikhailerofeev.nlp.hw4.v1;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Optional;

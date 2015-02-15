@@ -29,9 +29,9 @@ public class TrainingDataFormatter {
     private void generateFiles() throws Exception {
         boolean onlyMyTexts = false;
 //                final Set<String> niceWordsOrNull = null;
-        final Set<String> niceWordsOrNull = DataNormalizers.getNiceWords();
+        final Set<String> niceWordsOrNull = DataProcessingUtils.getNiceWords();
         final Map<String, Set<String>> labels2Files = TextsFinder.fillInFileNames(onlyMyTexts);
-        Multimap<String, String> labels2Texts = DataNormalizers.createLabelToTextsMap(labels2Files, niceWordsOrNull);
+        Multimap<String, String> labels2Texts = DataProcessingUtils.createLabelToTextsMap(labels2Files, niceWordsOrNull);
 //        Multimap<String, String> labels2Texts = DataNormalizers.createLabelToSentenceMap(labels2Files, niceWordsOrNull);
 
         File csvFile = createAndSaveCsvFile(labels2Texts);

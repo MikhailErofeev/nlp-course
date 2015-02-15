@@ -1,6 +1,7 @@
 package com.github.mikhailerofeev.nlp.hw3;
 
-import com.github.mikhailerofeev.nlp.hw2.DataNormalizers;
+import com.github.mikhailerofeev.nlp.hw2.DataProcessingUtils;
+import com.github.mikhailerofeev.nlp.hw2.DataProcessingUtils;
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -35,7 +36,7 @@ public class NaiveBayesClassifier {
         words = Lists.transform(words, new Function<String, String>() {
             @Override
             public String apply(String s) {
-                final String s1 = DataNormalizers.normalizeWord(s);
+                final String s1 = DataProcessingUtils.normalizeWord(s);
                 return s1;
             }
         });

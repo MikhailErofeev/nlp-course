@@ -1,7 +1,8 @@
 package com.github.mikhailerofeev.nlp.hw3;
 
 import com.github.mikhailerofeev.nlp.hw1.StatisticsResult;
-import com.github.mikhailerofeev.nlp.hw2.DataNormalizers;
+import com.github.mikhailerofeev.nlp.hw2.DataProcessingUtils;
+import com.github.mikhailerofeev.nlp.hw2.DataProcessingUtils;
 import com.github.mikhailerofeev.nlp.hw2.TextsFinder;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
@@ -38,7 +39,7 @@ public class NaiveBayesClassifierUtils {
 
             StatisticsResult.Builder builder = new StatisticsResult.Builder();
             for (int i = 0; i < 1; i++) {
-                fillFilesWithPositiveLabel(label, false, DataNormalizers.getNiceWords());
+                fillFilesWithPositiveLabel(label, false, DataProcessingUtils.getNiceWords());
                 final StatisticsResult statistics = generateStatistics(0);
                 builder.addResult(statistics);
             }
@@ -137,7 +138,7 @@ public class NaiveBayesClassifierUtils {
 
     private static void fillFilesWithPositiveLabel(String positiveLabel, boolean onlyMyTexts, Set<String> niceWords) throws IOException {
         final Map<String, Set<String>> label2FilePath = TextsFinder.fillInFileNames(onlyMyTexts);
-        final Multimap<String, String> labelToTextsMap = DataNormalizers.createLabelToTextsMap(label2FilePath, niceWords);
+        final Multimap<String, String> labelToTextsMap = DataProcessingUtils.createLabelToTextsMap(label2FilePath, niceWords);
 
         List<String> positive = Lists.newArrayList();
         List<String> negative = Lists.newArrayList();
@@ -167,7 +168,7 @@ public class NaiveBayesClassifierUtils {
         List<String> ret = Lists.newArrayList();
         String[] split = classText.split("( |-)"); //todo -- split smiles
         for (String s : split) {
-            s = DataNormalizers.normalizeWord(s, 3);
+            s = DataProcessingUtils.normalizeWord(s, 3);
             if (!StringUtils.isBlank(s)) {
                 boolean isLogin = TWITTER_NAME_PATTERN.matcher(s).find();
                 if (!isLogin) {

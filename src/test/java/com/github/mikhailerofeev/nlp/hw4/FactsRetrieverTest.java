@@ -1,5 +1,7 @@
 package com.github.mikhailerofeev.nlp.hw4;
 
+import com.github.mikhailerofeev.nlp.hw4.v1.Fact;
+import com.github.mikhailerofeev.nlp.hw4.v1.FactsRetriever;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

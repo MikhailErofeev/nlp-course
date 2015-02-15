@@ -1,6 +1,6 @@
-package com.github.mikhailerofeev.nlp.hw4;
+package com.github.mikhailerofeev.nlp.hw4.v1;
 
-import com.github.mikhailerofeev.nlp.hw2.DataNormalizers;
+import com.github.mikhailerofeev.nlp.hw2.DataProcessingUtils;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 
@@ -21,8 +21,8 @@ public class Fact {
     int entityOffset;
 
     public Fact(String firstText, String secondText, int systemLength, int userLength, int systemOffset, String category, int entityOffset) {
-        this.firstText = sortAndNormalize(firstText);
-        this.secondText = sortAndNormalize(secondText);
+        this.firstText = firstText;
+        this.secondText = secondText;
         this.systemLength = systemLength;
         this.systemOffset = systemOffset;
         this.userLength = userLength;
@@ -30,11 +30,11 @@ public class Fact {
         this.entityOffset = entityOffset;
     }
 
-    private String sortAndNormalize(String еуче) {
-        final List<String> splitted = Lists.newArrayList(еуче.split(" "));
+    private String sortAndNormalize(String text) {
+        final List<String> splitted = Lists.newArrayList(text.split(" "));
         final List<String> splittedNormalized = Lists.newArrayList();
         for (String s : splitted) {
-            splittedNormalized.add(DataNormalizers.normalizeWord(s, 0));
+            splittedNormalized.add(DataProcessingUtils.normalizeWord(s, 0));
         }
         Collections.sort(splittedNormalized);
         return Joiner.on(" ").join(splittedNormalized);

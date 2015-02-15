@@ -1,6 +1,8 @@
 package com.github.mikhailerofeev.nlp.hw4;
 
 import com.github.mikhailerofeev.nlp.hw1.StatisticsResult;
+import com.github.mikhailerofeev.nlp.hw4.v1.CorpusReader;
+import com.github.mikhailerofeev.nlp.hw4.v1.Fact;
 import com.google.common.collect.Multimap;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.github.mikhailerofeev.nlp.hw4;
+package com.github.mikhailerofeev.nlp.hw4.v1;
 
 import com.github.mikhailerofeev.nlp.hw1.SentenceParser;
 import com.github.mikhailerofeev.nlp.hw1.StatisticsResult;
