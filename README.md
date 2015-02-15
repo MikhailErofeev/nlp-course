@@ -222,7 +222,7 @@ Total Number of Instances              273
 # hw3. naive Bayes classifiers
 src: https://github.com/MikhailErofeev/nlp-course/tree/master/src/main/java/com/github/mikhailerofeev/nlp/hw3
 
-test (один, тривиальный): https://github.com/cscenter/nlp2014/blob/master/Erofeev/src/test/java/com/github/mikhailerofeev/nlp/hw3/NaiveBayesClassifierUtilsTest.java
+test (один, тривиальный): https://github.com/MikhailErofeev/nlp-course/tree/master/src/test/java/com/github/mikhailerofeev/nlp/hw3/NaiveBayesClassifierUtilsTest.java
 
 
 Аттрибуты брал из оставшегося с прошлого задания фильтра по Хи-квадрату
